@@ -17,7 +17,7 @@ with DAG('mssql_dag',
     hit_mssql = MsSqlOperator(
              task_id='sql-op',
              mssql_conn_id='conn_dp_staging_hom',
-             sql=f"SELECT @@VERSION",            
+             sql='SELECT @@VERSION',            
              autocommit=True,
              database='STAGING_HOM',
              dag=dag
