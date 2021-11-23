@@ -10,7 +10,7 @@ default_args = {
     'retry_delay': timedelta(seconds=5)
 }
 
-BASE_FOLDER = "datalake/{stage}/{partition}"
+BASE_FOLDER = "/opt/airflow/dags/lake/{stage}/{partition}"
 
 PARTITION_FOLDER = "extract_date={{ ds }}"
 
