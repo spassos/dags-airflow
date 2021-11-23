@@ -19,4 +19,4 @@ with DAG('bash_dag',
 
 
     bash_task = BashOperator(task_id='bash_task', 
-                             bash_command="echo 'command executed from BashOperator'")
+                             bash_command="echo 'Time de Dados! Rente, Amanda, Gabs, Presunto e Sérgio'")
