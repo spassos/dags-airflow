@@ -1,6 +1,7 @@
 from airflow import DAG
 from datetime import datetime, timedelta
 from airflow.operators.mssql_operator import MsSqlOperator    
+from airflow.contrib.operators.spark_submit_operator import SparkSubmitOperator
 
 default_args = {
     'owner': 'Sergio',
