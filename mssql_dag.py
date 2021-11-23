@@ -10,7 +10,7 @@ default_args = {
     'retry_delay': timedelta(seconds=5)
 }
 
-BASE_FOLDER = "/opt/airflow/dags/lake/{stage}/{partition}"
+BASE_FOLDER = "/opt/airflow/dags/repo/lake/{stage}/{partition}"
 
 PARTITION_FOLDER = "extract_date={{ ds }}"
 
@@ -31,7 +31,7 @@ with DAG('mssql_dag',
     spark = SparkSubmitOperator(
              task_id="spark-test",
              conn_id="conn_spark_cluster",
-             application="/opt/airflow/dags/spark/basic.py",
+             application="/opt/airflow/dags/repo/spark/basic.py",
              name="basic",
              application_args=[
                  "--src",
