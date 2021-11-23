@@ -3,7 +3,7 @@ from os.path import join
 
 from pyspark.sql import SparkSession
 from pyspark.sql import functions as f
-from spark.utils.base_functions import get_data
+from opt.airflow.dags.repo.spark.utils.base_functions import get_data
 
 
 def export_json(df, dest):
