@@ -23,4 +23,18 @@ with DAG('mssql_dag',
              dag=dag
          )
     
-    hit_mssql
+    spark = SparkSubmitOperator(
+             task_id="spark-test",
+             application="dags/spark/basic.py",
+             name="basic",
+             application_args=[
+                 "--src",
+                 BASE_FOLDER.format(stage="bronze", partition=PARTITION_FOLDER),
+                 "--dest",
+                 BASE_FOLDER.format(stage="silver", partition=""),
+                 "--process-date",
+                 "{{ ds }}",
+            ]
+    )
+    
+    hit_mssql >> spark
