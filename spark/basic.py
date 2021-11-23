@@ -3,8 +3,10 @@ from os.path import join
 
 from pyspark.sql import SparkSession
 from pyspark.sql import functions as f
-from opt.airflow.dags.repo.spark.utils.base_functions import get_data
 
+
+def get_data(df):
+    return df.select()
 
 def export_json(df, dest):
     df.coalesce(1).write.mode("overwrite").json(dest)
@@ -33,3 +35,5 @@ if __name__ == "__main__":
         .getOrCreate()
 
     data_transform(spark, args.src, args.dest, args.process_date)
+
+
