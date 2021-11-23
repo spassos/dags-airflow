@@ -30,6 +30,7 @@ with DAG('mssql_dag',
     
     spark = SparkSubmitOperator(
              task_id="spark-test",
+             conn_id="conn_spark_cluster",
              application="dags/spark/basic.py",
              name="basic",
              application_args=[
